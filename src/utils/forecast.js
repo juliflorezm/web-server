@@ -7,11 +7,12 @@ const forecast = (longitude, latitude, callback) => {
             callback('Can not connect to the forecast sevice', undefined);
         } else if(body) {
             if(body.current) {
-                const { current: { temperature, feelslike, weather_descriptions: description } } = body;
+                const { current: { temperature, feelslike, weather_descriptions: description, humidity } } = body;
                 callback(undefined, {
                     description,
                     temperature,
-                    feelslike
+                    feelslike,
+                    humidity
                 });
             } else if(body.error) {
                 callback(body.error.info, undefined);

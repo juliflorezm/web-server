@@ -16,9 +16,9 @@ weatherForm.addEventListener('submit', (e) => {
         if(data.error) {
             one.textContent = data.error;
         } else {
-            const { forecast: {temperature, feelslike, description }, location} = data;
+            const { forecast: {temperature, feelslike, description, humidity }, location} = data;
             one.textContent = location + '. ';
-            two.textContent = description + '. It is ' + temperature + ' degress out, but it is like ' + feelslike + ' degress out';
+            two.textContent = description + '. It is ' + temperature + ' degress out, but it is like ' + feelslike + ' degress out. It has a humidity of ' + humidity + '%';
         }
     });
 });
